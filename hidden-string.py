@@ -47,7 +47,7 @@ def hide_str (source:str, global_var_name:str, seed:int) -> tuple[str, str]:
   encoded = source.encode("utf-8") + b"\0" #NUL文字を添加する
   rand = random.Random(seed)
   mask = [rand.randint(0, 0xff) for _ in encoded]
-  global_var_code = "const volatile char {:s}[] = {{{:s}}};".format(
+  global_var_code = "static const volatile char {:s}[] = {{{:s}}};".format(
     global_var_name,
     ", ".join((
       "0x{:02x}".format(c ^ m) for c, m in zip(encoded, mask)
