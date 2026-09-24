@@ -1,6 +1,6 @@
 /bin/
-*.o
 *.2.c
+*.o
 *.exe
 *.dll
 *.lib
